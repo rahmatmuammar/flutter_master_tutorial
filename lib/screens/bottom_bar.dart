@@ -1,8 +1,11 @@
-// ignore_for_file: prefer_const_constructors
+// ignore_for_file: prefer_const_constructors, prefer_const_constructors_in_immutables
 
 import 'package:fluentui_icons/fluentui_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_master_tutorial/screens/home_screen.dart';
+import 'package:flutter_master_tutorial/screens/profile_screen.dart';
+import 'package:flutter_master_tutorial/screens/search_screen.dart';
+import 'package:flutter_master_tutorial/screens/ticket_screen.dart';
 
 class BottomBar extends StatefulWidget {
   BottomBar({Key? key}) : super(key: key);
@@ -15,9 +18,9 @@ class _BottomBarState extends State<BottomBar> {
   int _selectedIndex = 0;
   static final List<Widget> _widgetOptions = <Widget>[
     HomeScreen(),
-    const Text('Search'),
-    const Text('Tickets'),
-    const Text('Profile'),
+    SearchScreen(),
+    TicketScreen(),
+    ProfileScreen(),
   ];
 
   void _onItemTapped(int index) {
@@ -29,13 +32,6 @@ class _BottomBarState extends State<BottomBar> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // appBar: AppBar(
-      //   title: Center(
-      //     child: Text(
-      //       'My Tickets',
-      //     ),
-      //   ),
-      // ),
       body: Center(child: _widgetOptions[_selectedIndex]),
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _selectedIndex,
